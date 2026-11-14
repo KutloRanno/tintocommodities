@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { assetPath } from './asset-path';
 
 export default function Navigation({ destinations }) {
   const [open, setOpen] = useState(false);
@@ -52,8 +53,8 @@ export default function Navigation({ destinations }) {
         toggle.current?.focus();
       }} />}
       <div className="navigation-bar">
-        <a className="brand" href="/" aria-label="Tinto Commodities home">
-          <img src="/images/tinto-logo.png" alt="Tinto" width="258" height="258" />
+        <a className="brand" href={assetPath('/')} aria-label="Tinto Commodities home">
+          <img src={assetPath('/images/tinto-logo.png')} alt="Tinto" width="258" height="258" />
           <span className="brand-caption">TINTO<span>COMMODITIES</span></span>
         </a>
         <button ref={toggle} className="menu-toggle" type="button" aria-expanded={open} aria-controls="main-navigation" onClick={() => setOpen(!open)}>
